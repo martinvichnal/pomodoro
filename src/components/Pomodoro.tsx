@@ -1,7 +1,7 @@
 // import '@radix-ui/themes/styles.css';
 // import { Theme, Button } from '@radix-ui/themes'
 
-// Importing Bootstrap themes
+// Importing Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 
 import React, { useState, useEffect } from 'react';
 
-export const Pomodoro = () => {
+export default function Pomodoro() {
     const [minutes, setMinutes] = useState(60);
     const [seconds, setSeconds] = useState(0);
     const [running, setRunning] = useState(false);

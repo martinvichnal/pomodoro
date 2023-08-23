@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap"
 
-export const Todo = () => {
+export default function Todo() {
     return (
         <Container>
             <Row>
