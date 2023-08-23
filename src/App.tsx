@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { Pomodoro } from "./components/Pomodoro"
-import { Todo } from "./components/Todo"
+import Pomodoro from "./components/Pomodoro"
+import Todo from "./components/Todo"
 
 // Importing Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
