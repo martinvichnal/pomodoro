@@ -1,29 +1,26 @@
 import React from 'react';
-import './App.css';
 import Pomodoro from "./components/Pomodoro"
 import Todo from "./components/Todo"
-
-// Importing Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css"
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Navbar from './components/Navbar';
+import FooterMain from './components/FooterMain';
 
 
 
 export default function App() {
   return (
-    <div className="App">
-      <Container>
-        <Row>
-          <Col className=" bg-red-200">
-            <Pomodoro></Pomodoro>
-          </Col>
-          <Col>
-            <Todo></Todo>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <>
+      <div className='w-screen h-screen bg-white dark:bg-slate-800'>
+        {/* <div className='grid grid-cols-2 gap-2 mt-3'> */}
+        <div className='flex md:flex-row sm:flex-col justify-center gap-4 m-3'>
+          <div className='basis-2/4 p-4 rounded-3xl shadow-xl border-2 hover:border-0  border-red-100 bg-red-200 '>
+            <Pomodoro />
+          </div>
+          <div className='basis-2/4 p-4 rounded-3xl shadow-xl border-2 hover:border-0  border-green-100 bg-green-200 '>
+            <Todo />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
+

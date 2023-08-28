@@ -59,7 +59,7 @@ export default function Pomodoro() {
     return (
         <Container>
             <Row>
-                <Col className=" bg-red-200">
+                <Col className="">
                     <h3>Pomodoro</h3>
                     <Row>
                         <div>Countdown</div>
@@ -75,19 +75,22 @@ export default function Pomodoro() {
                     </Row>
                     <Row>
                         <Col>
-                            <div>Quick sets</div>
-                            <Col>
-                                <Button variant="secondary">15:00</Button>{' '}
-                                <Button variant="secondary">25:00</Button>{' '}
-                            </Col>
-                            <Col>
-                                <Button variant="secondary">30:00</Button>{' '}
-                                <Button variant="secondary">45:00</Button>{' '}
-                            </Col>
-                            <Col>
-                                <Button variant="secondary">50:00</Button>{' '}
-                                <Button variant="secondary">60:00</Button>{' '}
-                            </Col>
+                            <span>Quick sets</span>
+                            <div className="grid grid-cols-3 gap-2 ">
+
+                                <div>
+                                    <Button variant="secondary">15:00</Button>{' '}
+                                    <Button variant="secondary">25:00</Button>{' '}
+                                </div>
+                                <div>
+                                    <Button variant="secondary">30:00</Button>{' '}
+                                    <Button variant="secondary">45:00</Button>{' '}
+                                </div>
+                                <div>
+                                    <Button variant="secondary">50:00</Button>{' '}
+                                    <Button variant="secondary">60:00</Button>{' '}
+                                </div>
+                            </div>
                         </Col>
                         <Col>
                             <div>Total Focused</div>
