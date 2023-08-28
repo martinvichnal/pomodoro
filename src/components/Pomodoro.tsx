@@ -1,104 +1,146 @@
-// import '@radix-ui/themes/styles.css';
-// import { Theme, Button } from '@radix-ui/themes'
+import React, { useState, useEffect } from 'react';
 
 // Importing Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
-import React, { useState, useEffect } from 'react';
+function Countdown(): JSX.Element {
+    // Initial values for the countdown
+    let initialMinutes = 1;
+    let initialSeconds = 0;
 
-export default function Pomodoro() {
-    const [minutes, setMinutes] = useState(60);
-    const [seconds, setSeconds] = useState(0);
-    const [running, setRunning] = useState(false);
+    // States:
+    const [minutes, setMinutes] = useState<number>(initialMinutes);     // Minute state
+    const [seconds, setSeconds] = useState<number>(initialSeconds);     // Seconds state
+    const [running, setRunning] = useState<boolean>(false);             // runnig state: boolean
+    const [sliderValue, setSliderValue] = useState<number>(25);         // Used for slider value
+    const [sum, setSum] = useState(0);
 
-    let interval: NodeJS.Timeout; // Explicitly define the type of interval
+    // Countdown useEffect hook
+    // Changes when: running, minutes, seconds
+    // Main purpose: changing the countdown states: setMinutes, setSeconds with 1 sec intervallum
+    useEffect(() => {
+        let timer: NodeJS.Timeout | undefined;
 
-    const setIntervalMin = 60;
-    const setIntervalSec = 0;
+        if (running && (minutes > 0 || seconds > 0)) {
+            timer = setInterval(() => {
+                if (seconds === 0) {
+                    setMinutes((prevMinutes) => prevMinutes - 1);
+                    setSeconds(59);
+                } else {
+                    setSeconds((prevSeconds) => prevSeconds - 1);
+                }
+            }, 1000);
+        }
 
-    const handleStart = () => {
+        // Reseting the timer variable if the countdown is at 0 
+        if (!running || (minutes === 0 && seconds === 0)) {
+            clearInterval(timer);
+            setSum((prevSum) => prevSum + initialMinutes);
+        }
+
+        return () => {
+            clearInterval(timer);
+        };
+    }, [running, minutes, seconds]);
+
+    // Call this to start the countdown
+    const handleStart = (): void => {
         setRunning(true);
-    }
+    };
 
-    const handleStop = () => {
+    // Call this when stoping the countdown without reseting
+    const handleStop = (): void => {
         setRunning(false);
     }
 
-    const handleRestart = () => {
-        // clearInterval(interval);
-        setMinutes(setIntervalMin);
-        setSeconds(setIntervalSec);
+    // Call this when reseting the counter
+    const handleReset = (): void => {
+        setRunning(false);
+        setMinutes(initialMinutes);
+        setSeconds(initialSeconds);
+    };
+
+    // param type for handleSetCountdown fucntion
+    type CountdownParams = {
+        min: number,
+        sec: number
+    }
+    // Call this when setting the pomodoro counter. 
+    // Parameters: min: number, sec: number
+    // sec should be between 0 and 59
+    const handleSetCountdown = ({ min, sec }: CountdownParams): void => {
+        initialMinutes = min;
+        initialSeconds = sec;
+        setMinutes(min);
+        setSeconds(sec);
     }
 
-
-    useEffect(() => {
-        if (running && (minutes > 0 || seconds > 0)) {
-            interval = setInterval(() => {
-                if (seconds === 0) {
-                    if (minutes === 0) {
-                        clearInterval(interval);
-                    } else {
-                        setMinutes(minutes - 1);
-                        setSeconds(59);
-                    }
-                } else {
-                    setSeconds(seconds - 1);
-                }
-            }, 1000);
-        } else {
-            clearInterval(interval);
-        }
-
-        return () => clearInterval(interval);
-    }, [running, minutes, seconds]);
+    const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = Number(event.target.value);
+        setSliderValue(newValue);
+        // Setting the countdown minute to the slider value
+        initialMinutes = newValue;
+        setMinutes(newValue);
+    };
 
     return (
-        <Container>
-            <Row>
-                <Col className="">
-                    <h3>Pomodoro</h3>
-                    <Row>
-                        <div>Countdown</div>
-                        <p>{minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</p>
-                    </Row>
-                    <Row>
-                        <div>Controls</div>
-                        <Col>
-                            <Button onClick={handleStart} variant="success">START</Button>{' '}
-                            <Button onClick={handleStop} variant="danger">STOP</Button>{' '}
-                            <Button onClick={handleRestart} variant="secondary">REASTART</Button>{' '}
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <span>Quick sets</span>
-                            <div className="grid grid-cols-3 gap-2 ">
-
-                                <div>
-                                    <Button variant="secondary">15:00</Button>{' '}
-                                    <Button variant="secondary">25:00</Button>{' '}
-                                </div>
-                                <div>
-                                    <Button variant="secondary">30:00</Button>{' '}
-                                    <Button variant="secondary">45:00</Button>{' '}
-                                </div>
-                                <div>
-                                    <Button variant="secondary">50:00</Button>{' '}
-                                    <Button variant="secondary">60:00</Button>{' '}
-                                </div>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div>Total Focused</div>
-                            <div>154:25</div>
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
-        </Container>
+        <div>
+            <h2>Pomodoro</h2>
+            <div className="" id='countdown'>
+                {(minutes === 0 && seconds === 0) ? (
+                    <p>{`Nice job! You did it! now take a quick rest :)`}</p>
+                ) : (
+                    <p className="">
+                        Time: {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
+                    </p>
+                )}
+            </div>
+            <div className="" id='setCountdown'>
+                <p>Set a custom time</p>
+                <input
+                    disabled={running}
+                    type="range"
+                    className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200"
+                    min="15"
+                    max="60"
+                    step="5"
+                    value={sliderValue}
+                    onChange={handleSliderChange}
+                />
+            </div>
+            <div className="" id='controls'>
+                <div>
+                    {running ? (
+                        <Button className="m-1" onClick={handleStop} variant="danger">STOP</Button>
+                    ) : (
+                        <Button className="m-1" onClick={handleStart} variant="success">START</Button>
+                    )}
+                    <Button disabled={running} className="m-1" onClick={handleReset} variant="secondary">REASTART</Button>
+                </div>
+            </div>
+            <div className="" id='quickSets'>
+                <span>Quick sets</span>
+                <div className="grid grid-cols-3 gap-2 ">
+                    <div>
+                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 15, sec: 0 })} variant="secondary">15:00</Button>{' '}
+                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 25, sec: 0 })} variant="secondary">25:00</Button>{' '}
+                    </div>
+                    <div>
+                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 30, sec: 0 })} variant="secondary">30:00</Button>{' '}
+                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 45, sec: 0 })} variant="secondary">45:00</Button>{' '}
+                    </div>
+                    <div>
+                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 50, sec: 0 })} variant="secondary">50:00</Button>{' '}
+                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 60, sec: 0 })} variant="secondary">60:00</Button>{' '}
+                    </div>
+                </div>
+            </div>
+            <div id='progress'>
+                <p>So far I focues for: {sum} minutes!</p>
+            </div>
+        </div>
     );
-};
+}
+
+export default Countdown;

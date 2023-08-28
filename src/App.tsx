@@ -1,26 +1,32 @@
 import React from 'react';
+
+// Importing components
+import Navbar from './components/Navbar';
 import Pomodoro from "./components/Pomodoro"
 import Todo from "./components/Todo"
-import Navbar from './components/Navbar';
-import FooterMain from './components/FooterMain';
+import FooterMain from './components/FooterMain';;
 
+// Import background image
+// import BackgroundImage from './assets/studio.jpg'
 
-
+// Main APP
 export default function App() {
   return (
-    <>
-      <div className='w-screen h-screen bg-white dark:bg-slate-800'>
+    <React.Fragment>
+      {/* <div style={{ backgroundImage: `url(${BackgroundImage})` }} className=' w-screen h-screen bg-cover bg-no-repeat bg-center'> */}
+      <div className="w-screen h-screen bg-white">
         {/* <div className='grid grid-cols-2 gap-2 mt-3'> */}
-        <div className='flex md:flex-row sm:flex-col justify-center gap-4 m-3'>
-          <div className='basis-2/4 p-4 rounded-3xl shadow-xl border-2 hover:border-0  border-red-100 bg-red-200 '>
+        <div className='content-center flex md:flex-row sm:flex-col justify-center gap-4 m-3'>
+          <div className='mt-10 basis-2/4 p-4 rounded-2xl shadow-2xl bg-slate-200'>
             <Pomodoro />
           </div>
-          <div className='basis-2/4 p-4 rounded-3xl shadow-xl border-2 hover:border-0  border-green-100 bg-green-200 '>
+          <div className='mt-10 basis-2/4 p-4 rounded-2xl shadow-2xl bg-slate-200'>
             <Todo />
           </div>
         </div>
       </div>
-    </>
+
+    </React.Fragment>
   );
 }
 
