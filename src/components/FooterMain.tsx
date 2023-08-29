@@ -1,10 +1,10 @@
 import { Footer } from "flowbite-react";
-import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import { BsFacebook, BsGithub, BsInstagram } from "react-icons/bs";
 
 export default function FooterMain() {
   return (
-    <Footer container>
-      <div className="w-full">
+    <Footer container className="dark:bg-slate-900 bg-slate-200">
+      <div className="w-full ">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
             <Footer.Brand

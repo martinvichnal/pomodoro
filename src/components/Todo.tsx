@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Quotable from "./Quotable";
 
 const Todo: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -65,22 +64,22 @@ const Todo: React.FC = () => {
   return (
     <div className=" text-black dark:text-white">
       <h1 className="text-3xl font-bold mb-4">To-Do</h1>
-      <div className="mt-4">
-        <h2 className="text-xl font-semibold mb-2">Add a New Task</h2>
+      <div className="justify-center mt-4">
+        <h2 className="basis-2/6 text-xl font-semibold mb-2">Add a New Task</h2>
         <input
           type="text"
-          className="border border-gray-300 rounded px-2 py-1 mr-2"
+          className="basis-4/6 border border-gray-300 rounded px-2 py-1 mr-2 text-black"
           value={newTask}
           onChange={handleNewTaskChange}
         />
         <button
-          className="bg-green-500 hover:bg-green-700 text-white font-semibold py-1 px-2 rounded"
+          className="basis-1/6 bg-green-500 hover:bg-green-700 text-white font-semibold py-1 px-2 rounded"
           onClick={handleAddTask}
         >
           ADD
         </button>
       </div>
-      <div className="mb-8">
+      <div className="my-8">
         <ul>
           {tasks.map((mission, index) => (
             <li key={index} className="flex items-center mb-2">
@@ -102,10 +101,6 @@ const Todo: React.FC = () => {
             <li key={index}>{task}</li>
           ))}
         </ul>
-        <div>
-          {/* {loading ? <p>Loading...</p> : reward && <p>Space Fact Reward: {reward}</p>} */}
-          {loading ? <p>Loading...</p> : reward && <p>Quote:{<Quotable />}</p>}
-        </div>
       </div>
     </div>
   );
