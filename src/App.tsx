@@ -13,6 +13,7 @@ import FooterMain from './components/FooterMain';;
 export default function App() {
   return (
     <React.Fragment>
+      <Navbar />
       {/* <div style={{ backgroundImage: `url(${BackgroundImage})` }} className=' w-screen h-screen bg-cover bg-no-repeat bg-center'> */}
       <div className="w-screen h-screen bg-white">
         {/* <div className='grid grid-cols-2 gap-2 mt-3'> */}

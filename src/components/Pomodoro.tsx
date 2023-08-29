@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 // Importing Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css"
-import Button from 'react-bootstrap/Button';
+// import "bootstrap/dist/css/bootstrap.min.css"
+// import Button from 'react-bootstrap/Button';
 
 function Countdown(): JSX.Element {
     // Initial values for the countdown
@@ -112,27 +112,27 @@ function Countdown(): JSX.Element {
             <div className="" id='controls'>
                 <div>
                     {running ? (
-                        <Button className="m-1" onClick={handleStop} variant="danger">STOP</Button>
+                        <button className="m-1" onClick={handleStop} >STOP</button>
                     ) : (
-                        <Button className="m-1" onClick={handleStart} variant="success">START</Button>
+                        <button className="m-1" onClick={handleStart} >START</button>
                     )}
-                    <Button disabled={running} className="m-1" onClick={handleReset} variant="secondary">REASTART</Button>
+                    <button disabled={running} className="m-1" onClick={handleReset} >REASTART</button>
                 </div>
             </div>
             <div className="" id='quickSets'>
                 <span>Quick sets</span>
                 <div className="grid grid-cols-3 gap-2 ">
                     <div>
-                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 15, sec: 0 })} variant="secondary">15:00</Button>{' '}
-                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 25, sec: 0 })} variant="secondary">25:00</Button>{' '}
+                        <button disabled={running} onClick={() => handleSetCountdown({ min: 15, sec: 0 })}>15:00</button>{' '}
+                        <button disabled={running} onClick={() => handleSetCountdown({ min: 25, sec: 0 })}>25:00</button>{' '}
                     </div>
                     <div>
-                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 30, sec: 0 })} variant="secondary">30:00</Button>{' '}
-                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 45, sec: 0 })} variant="secondary">45:00</Button>{' '}
+                        <button disabled={running} onClick={() => handleSetCountdown({ min: 30, sec: 0 })}>30:00</button>{' '}
+                        <button disabled={running} onClick={() => handleSetCountdown({ min: 45, sec: 0 })}>45:00</button>{' '}
                     </div>
                     <div>
-                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 50, sec: 0 })} variant="secondary">50:00</Button>{' '}
-                        <Button disabled={running} onClick={() => handleSetCountdown({ min: 60, sec: 0 })} variant="secondary">60:00</Button>{' '}
+                        <button disabled={running} onClick={() => handleSetCountdown({ min: 50, sec: 0 })}>50:00</button>{' '}
+                        <button disabled={running} onClick={() => handleSetCountdown({ min: 60, sec: 0 })}>60:00</button>{' '}
                     </div>
                 </div>
             </div>
