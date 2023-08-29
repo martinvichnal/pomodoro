@@ -85,7 +85,7 @@ function Countdown(): JSX.Element {
   };
 
   return (
-    <div>
+    <div className=" text-black dark:text-white">
       <h2>Pomodoro</h2>
       <div className="" id="countdown">
         {minutes === 0 && seconds === 0 ? (
@@ -113,15 +113,15 @@ function Countdown(): JSX.Element {
       <div className="" id="controls">
         <div>
           {running ? (
-            <button className="m-1" onClick={handleStop}>
+            <button type="button" onClick={handleStop} className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
               STOP
             </button>
           ) : (
-            <button className="m-1" onClick={handleStart}>
+            <button type="button" onClick={handleStart} className="m-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
               START
             </button>
           )}
-          <button disabled={running} className="m-1" onClick={handleReset}>
+          <button disabled={running} onClick={handleReset} type="button" className="m-1 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             REASTART
           </button>
         </div>
@@ -130,46 +130,28 @@ function Countdown(): JSX.Element {
         <span>Quick sets</span>
         <div className="grid grid-cols-3 gap-2 ">
           <div>
-            <button
-              disabled={running}
-              onClick={() => handleSetCountdown({ min: 15, sec: 0 })}
-            >
+            <button disabled={running} onClick={() => handleSetCountdown({ min: 15, sec: 0 })} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
               15:00
-            </button>{" "}
-            <button
-              disabled={running}
-              onClick={() => handleSetCountdown({ min: 25, sec: 0 })}
-            >
+            </button>
+            <button disabled={running} onClick={() => handleSetCountdown({ min: 25, sec: 0 })} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
               25:00
-            </button>{" "}
+            </button>
           </div>
           <div>
-            <button
-              disabled={running}
-              onClick={() => handleSetCountdown({ min: 30, sec: 0 })}
-            >
+            <button disabled={running} onClick={() => handleSetCountdown({ min: 30, sec: 0 })} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
               30:00
-            </button>{" "}
-            <button
-              disabled={running}
-              onClick={() => handleSetCountdown({ min: 45, sec: 0 })}
-            >
+            </button>
+            <button disabled={running} onClick={() => handleSetCountdown({ min: 45, sec: 0 })} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
               45:00
-            </button>{" "}
+            </button>
           </div>
           <div>
-            <button
-              disabled={running}
-              onClick={() => handleSetCountdown({ min: 50, sec: 0 })}
-            >
+            <button disabled={running} onClick={() => handleSetCountdown({ min: 50, sec: 0 })} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
               50:00
-            </button>{" "}
-            <button
-              disabled={running}
-              onClick={() => handleSetCountdown({ min: 60, sec: 0 })}
-            >
+            </button>
+            <button disabled={running} onClick={() => handleSetCountdown({ min: 60, sec: 0 })} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
               60:00
-            </button>{" "}
+            </button>
           </div>
         </div>
       </div>

@@ -12,20 +12,31 @@ import FooterMain from "./components/FooterMain";
 // Main APP
 export default function App() {
   return (
-    <React.Fragment>
+    <div className="bg-white dark:bg-slate-800">
       <Navbar />
       {/* <div style={{ backgroundImage: `url(${BackgroundImage})` }} className=' w-screen h-screen bg-cover bg-no-repeat bg-center'> */}
-      <div className="w-screen h-screen bg-white">
+      <div className="w-screen h-screen bg-white dark:bg-slate-800">
         {/* <div className='grid grid-cols-2 gap-2 mt-3'> */}
         <div className="content-center flex md:flex-row sm:flex-col justify-center gap-4 m-3">
-          <div className="mt-10 basis-2/4 p-4 rounded-2xl shadow-2xl bg-slate-200">
+          <div className="mt-10 basis-2/4 p-4 rounded-2xl shadow-2xl bg-slate-200 dark:bg-slate-900">
             <Pomodoro />
           </div>
-          <div className="mt-10 basis-2/4 p-4 rounded-2xl shadow-2xl bg-slate-200">
+          <div className="mt-10 basis-2/4 p-4 rounded-2xl shadow-2xl bg-slate-200 dark:bg-slate-900">
             <Todo />
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
+}
+
+{
+  /* <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Default</button>
+<button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Alternative</button>
+<button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Dark</button>
+<button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Light</button>
+<button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Green</button>
+<button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Red</button>
+<button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">Yellow</button>
+<button type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Purple</button> */
 }

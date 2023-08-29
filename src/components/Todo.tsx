@@ -63,7 +63,7 @@ const Todo: React.FC = () => {
   };
 
   return (
-    <div className="">
+    <div className=" text-black dark:text-white">
       <h1 className="text-3xl font-bold mb-4">To-Do</h1>
       <div className="mt-4">
         <h2 className="text-xl font-semibold mb-2">Add a New Task</h2>
