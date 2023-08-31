@@ -43,6 +43,8 @@ The pomodoro section can be used like this:
 - 3.: These are the quick sets. You can quickly set your desire session windows.
 - 4.: This is just a simple tracker which is counting how many minutes you have focused so far.
 
+[<img src="https://github.com/martinvichnal/pomodoro/blob/main/ref/Pomodoro.png" width="500"/>](https://github.com/martinvichnal/pomodoro/blob/main/ref/Pomodoro.png)
+
 #### Cool features
 If the countdown is running all the buttons exept the STOP button is dissabled. This is in case of a missclick or other cases :)
 
@@ -54,10 +56,15 @@ The todo section can be used like this:
 - 4.: If a chosen task is completed: First Good job! Then press the "Complete" button to cross the task off your list
 - 5.: These are the completed tasks.
 
+[<img src="https://github.com/martinvichnal/pomodoro/blob/main/ref/Todo.png" width="500"/>](https://github.com/martinvichnal/pomodoro/blob/main/ref/Todo.png)
+
 ### Dark mode
 The site has a dark mode function which is by the way automatic so it is changeing like your OS changes thems but you can trigger the dark mode with a simple button press on the top right corner in the navbar.
+
+[<img src="https://github.com/martinvichnal/pomodoro/blob/main/ref/Dark.png" width="500"/>](https://github.com/martinvichnal/pomodoro/blob/main/ref/Dark.png)
+[<img src="https://github.com/martinvichnal/pomodoro/blob/main/ref/Light.png" width="500"/>](https://github.com/martinvichnal/pomodoro/blob/main/ref/Light.png)
 
 ### Quote of the day
 This section is just a fun litle thing to boost your moral :) It uses this api [https://api.quotable.io/random](https://api.quotable.io/random) if you want to check it out.
 
-
+[<img src="https://github.com/martinvichnal/pomodoro/blob/main/ref/Quote.png" width="300"/>](https://github.com/martinvichnal/pomodoro/blob/main/ref/Quote.png)
