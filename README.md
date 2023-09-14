@@ -19,18 +19,18 @@ The website is available on my personal site or in this link: [martinvichnal.com
 
 ## Table of Contents
 
--   [vichnalmartin.com/pomodoro](#vichnalmartincompomodoro)
-    -   [Introduction](#introduction)
-    -   [Table of Contents](#table-of-contents)
-    -   [Usage](#usage)
-        -   [Pomodoro](#pomodoro)
-            -   [Cool features](#cool-features)
-        -   [Todo](#todo)
+[vichnalmartin.com/pomodoro](#vichnalmartincompomodoro)
+-   [Introduction](#introduction)
+-   [Table of Contents](#table-of-contents)
+-   [Usage](#usage)
+    -   [Pomodoro](#pomodoro)
+        -   [Cool features](#cool-features)
+    -   [Todo](#todo)
         -   [Dark mode](#dark-mode)
         -   [Quote of the day](#quote-of-the-day)
-    -   [The code](#the-code)
-        -   [Pomodoro](#pomodoro-1)
-        -   [Todo](#todo-1)
+-   [The code](#the-code)
+    -   [Pomodoro](#pomodoro-1)
+    -   [Todo](#todo-1)
 
 ---
 
